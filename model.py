@@ -1,6 +1,6 @@
 import torch.nn as nn
 
-class Face_classifi_nnModel(nn.Module):
+class Face_classify_nnModel(nn.Module):
   def __init__(self, ch_in, n_class):
       super().__init__()
       self.network = nn.Sequential(

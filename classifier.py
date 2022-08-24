@@ -1,19 +1,16 @@
-from cProfile import label
-from pickletools import uint8
 import torch
 from torchvision import transforms as T
 import numpy as np
-import cv2
 from PIL import Image
 torch.set_grad_enabled(False)
 
-class classfier:
+class Classfier:
     def __init__(self, model_path, labels):
         self.model = torch.jit.load(model_path)
 
         self.labels = labels
 
-        self.transform = transformer = T.Compose(
+        self.transform = T.Compose(
             [T.Resize((32, 32), interpolation = T.InterpolationMode.BICUBIC),
             T.ToTensor(),
             T.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])]
