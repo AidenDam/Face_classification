@@ -1,0 +1,10 @@
+__pycache__/
+*.log
+*.pth
+*.pt
+.vscode/
+*.jpg
+*.png
+.dvc
+*.Dockerfile
+models
