@@ -1,0 +1,4 @@
+outs:
+- md5: 6a3e23cde76e04ec60de97ce2b9960b1
+  size: 23433277
+  path: face_classification_script.pt
