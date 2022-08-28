@@ -45,6 +45,7 @@ class Classfier:
 if __name__ == '__main__':
     rand_in = np.random.randint(255, size=(224, 224, 3), dtype=np.uint8)
 
-    model = classfier('face_classification_script.pt')
+    model = Classfier('weights/face_classification_script.pt',
+                     ['500', '501', '502', '503', '504', '505', '506', '507', '508', '509'])
 
     print(model.predict_single_image(rand_in))

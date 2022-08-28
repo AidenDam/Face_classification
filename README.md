@@ -13,5 +13,5 @@ DOCKER_BUILDKIT=1 docker build -t classification_gpu -f gpu.Dockerfile .
 ```
 
 ```
-docker run --rm -it -p 11234:8001 classification_gpu
+docker run --gpus=all --rm -it -p 11234:8001 classification_gpu
 ```

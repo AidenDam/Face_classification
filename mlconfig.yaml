@@ -44,7 +44,7 @@ mode:
   default: default          # The default mode
   env:
     default:                # All variable in default mode will be existed in other mode 
-      model_path: 'face_classification_script.pt'
+      model_path: 'weights/face_classification_script.pt'
       labels: ['500', '501', '502', '503', '504', '505', '506', '507', '508', '509']
     dev:                    # Development mode 
       debug: True
