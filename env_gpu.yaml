@@ -1,4 +1,4 @@
-name: face_classification_cpu
+name: face_classification_gpu
 channels:
   - conda-forge
   - pytorch
@@ -6,8 +6,7 @@ dependencies:
   - conda-forge::python=3.9
   - pip
   - pytorch::pytorch=1.12.0
-  - pytorch::torchvision=0.13.0
-  - pytorch::cpuonly
+  - cudatoolkit=11.3
   - pip:
     - mlchain==0.3.0
     - pillow==9.2.0
