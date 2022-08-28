@@ -1,0 +1,14 @@
+name: face_classification
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - conda-forge::python=3.9
+  - pip
+  - pytorch::pytorch=1.12.0
+  - pytorch::torchvision=0.13.0
+  - pytorch::cpyonly
+  - pip:
+    - mlchain==0.3.0
+    - pillow==9.2.0
+    - numpy==1.22.4
