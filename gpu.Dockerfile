@@ -2,8 +2,8 @@
 FROM condaforge/py39 AS build
 
 # Install the package as normal:
-COPY env_cpu.yaml .
-RUN conda env create -f env_cpu.yaml
+COPY env_gpu.yaml .
+RUN conda env create -f env_gpu.yaml
 
 # Install conda-pack:
 RUN conda install -c conda-forge conda-pack
