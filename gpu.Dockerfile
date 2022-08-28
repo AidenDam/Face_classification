@@ -1,12 +1,12 @@
 # The build-stage image:
-FROM condaforge/py39 AS build
+FROM condaforge/mambaforge AS build
 
 # Install the package as normal:
 COPY env_gpu.yaml .
-RUN conda env create -f env_gpu.yaml
+RUN mamba env create -f env_gpu.yaml
 
 # Install conda-pack:
-RUN conda install -c conda-forge conda-pack
+RUN mamba install -c conda-forge conda-pack
 
 # Use conda-pack to create a standalone enviornment
 # in /venv:
@@ -39,7 +39,7 @@ COPY --from=build /venv /venv
 COPY weights /code/weights
 
 # Then copy the rest of the code
-RUN --mount=target=/cfx rsync -r --exclude='weights' /ctx/ /code/
+RUN --mount=target=/ctx rsync -r --exclude='weights' /ctx/ /code/
 
 WORKDIR /code/
 
