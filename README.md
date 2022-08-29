@@ -1,4 +1,4 @@
-This repo practices a face classification to server with chain.
+This repo practices a face classification to server and packaging.
 
 Run with cpu
 ```
