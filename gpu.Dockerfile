@@ -10,7 +10,7 @@ RUN mamba install -c conda-forge conda-pack
 
 # Use conda-pack to create a standalone enviornment
 # in /venv:
-RUN conda-pack --ignore-missing-files -n face_classification_cpu -o /tmp/env.tar && \
+RUN conda-pack --ignore-missing-files -n face_classification_gpu -o /tmp/env.tar && \
   mkdir /venv && cd /venv && tar xf /tmp/env.tar && \
   rm /tmp/env.tar
 
@@ -18,23 +18,22 @@ RUN conda-pack --ignore-missing-files -n face_classification_cpu -o /tmp/env.tar
 # so now fix up paths:
 RUN /venv/bin/conda-unpack
 
+
 # The runtime-stage image; we can use Debian as the
 # base image since the Conda env also includes Python
 # for us.
 FROM debian:buster AS runtime
 
-ENV DEBAIN_FRONTEND=noninteractive \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    LANG=C.UTF-8
-
 # Copy /venv from the previous stage:
-COPY --from=build /venv /venv
+# COPY --from=build /venv /venv
 
 # Install common OS level dependencies
 RUN apt-get update && \
     apt-get install -y rsync && \
     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 
 # Copy /venv from the previous stage
 COPY --from=build /venv /venv

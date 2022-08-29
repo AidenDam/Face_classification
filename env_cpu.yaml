@@ -1,6 +1,7 @@
 name: face_classification_cpu
 channels:
   - conda-forge
+  - defaults
   - pytorch
 dependencies:
   - conda-forge::python=3.9
